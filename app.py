@@ -5,21 +5,21 @@ import os
 from llama_index import StorageContext, load_index_from_storage, SimpleDirectoryReader, GPTVectorStoreIndex
 
 # Build Vector Store Index
-print ("about to start")
-documents = SimpleDirectoryReader('./data').load_data()
-print(documents)
-index = GPTVectorStoreIndex.from_documents(documents)
-index.storage_context.persist('data')
-exit(1)
+# print ("about to start")
+# documents = SimpleDirectoryReader('./data').load_data()
+# print(documents)
+# index = GPTVectorStoreIndex.from_documents(documents)
+# index.storage_context.persist('data')
+# exit(1)
 
 from secret_key import openapi_key
 
 os.environ["OPENAI_API_KEY"] = openapi_key
 
 # rebuild storage context
-# storage_context = StorageContext.from_defaults(persist_dir='/Users/tarakram/Documents/Chatbot/index')
+storage_context = StorageContext.from_defaults(persist_dir='./index')
 # load index
-# index = load_index_from_storage(storage_context)
+index = load_index_from_storage(storage_context)
 
 # Create the chatbot
 # Chat Bot 
