@@ -3,18 +3,19 @@ import json
 import os
 
 # Load the index
-# index_path = '/Users/tarakram/Documents/Chatbot/index'
-# with open(index_path, 'r') as f:
-#     index = json.load(f)
+index_path = 'data'
+with open(index_path, 'r') as f:
+     index = json.load(f)
+
 from llama_index import StorageContext, load_index_from_storage
 from secret_key import openapi_key
 
 os.environ["OPENAI_API_KEY"] = openapi_key
 
 # rebuild storage context
-storage_context = StorageContext.from_defaults(persist_dir='/Users/tarakram/Documents/Chatbot/index')
+# storage_context = StorageContext.from_defaults(persist_dir='/Users/tarakram/Documents/Chatbot/index')
 # load index
-index = load_index_from_storage(storage_context)
+# index = load_index_from_storage(storage_context)
 
 # Create the chatbot
 # Chat Bot 
