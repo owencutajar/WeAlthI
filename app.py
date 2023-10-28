@@ -14,7 +14,7 @@ from llama_index import StorageContext, load_index_from_storage, SimpleDirectory
 
 from secret_key import openapi_key
 
-os.environ["OPENAI_API_KEY"] = openapi_key
+openai.api_key = st.secrets.openai_key
 
 # rebuild storage context
 storage_context = StorageContext.from_defaults(persist_dir='./index')
