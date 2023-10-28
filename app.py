@@ -5,31 +5,31 @@ import openai
 
 from llama_index import StorageContext, load_index_from_storage, SimpleDirectoryReader, GPTVectorStoreIndex
 
-# Build Vector Store Index
+# Build Vector Store Index - not going to be using this, but using desktop app to build index
 # print ("about to start")
 # documents = SimpleDirectoryReader('./data').load_data()
 # print(documents)
 # index = GPTVectorStoreIndex.from_documents(documents)
-# index.storage_context.persist('data')
+# index.storage_context.persist('./index')
 # exit(1)
 
-from secret_key import openapi_key
-
-openai.api_key = st.secrets.openai_key
+#from secret_key import openapi_key
+#openai.api_key = st.secrets.openai_key
+openapi_key = st.secrets.openai_key
 
 # rebuild storage context
 storage_context = StorageContext.from_defaults(persist_dir='./index')
+
 # load index
 index = load_index_from_storage(storage_context)
 
 # Create the chatbot
 # Chat Bot 
 
-
 class Chatbot:
     def __init__(self, api_key, index, user_id):
         self.index = index
-        openai.api_key = api_key
+        # openai.api_key = api_key
         self.user_id = user_id
         self.chat_history = []
         self.filename = f"{self.user_id}_chat_history.json"
