@@ -2,12 +2,15 @@ import streamlit as st
 import json
 import os
 
-# Load the index
-index_path = 'data'
-with open(index_path, 'r') as f:
-     index = json.load(f)
+from llama_index import StorageContext, load_index_from_storage, SimpleDirectoryReader, GPTVectorStoreIndex
 
-from llama_index import StorageContext, load_index_from_storage
+# Build Vector Store Index
+documents = SimpleDirectoryReader('data').load_data()
+print(documents)
+index = GPTVectorStoreIndex.from_documents(documents)
+index.storage_context.persist('data')
+exit(1)
+
 from secret_key import openapi_key
 
 os.environ["OPENAI_API_KEY"] = openapi_key
