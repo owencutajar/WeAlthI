@@ -5,7 +5,7 @@ import os
 from llama_index import StorageContext, load_index_from_storage, SimpleDirectoryReader, GPTVectorStoreIndex
 
 # Build Vector Store Index
-print "about to start"
+print ("about to start")
 documents = SimpleDirectoryReader('data').load_data()
 print(documents)
 index = GPTVectorStoreIndex.from_documents(documents)
