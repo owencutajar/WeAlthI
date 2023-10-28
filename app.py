@@ -1,6 +1,7 @@
 import streamlit as st
 import json
 import os
+import openai
 
 from llama_index import StorageContext, load_index_from_storage, SimpleDirectoryReader, GPTVectorStoreIndex
 
@@ -24,8 +25,6 @@ index = load_index_from_storage(storage_context)
 # Create the chatbot
 # Chat Bot 
 
-import openai
-import json
 
 class Chatbot:
     def __init__(self, api_key, index, user_id):
