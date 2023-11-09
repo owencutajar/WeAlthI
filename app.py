@@ -29,7 +29,7 @@ index = load_index_from_storage(storage_context)
 class Chatbot:
     def __init__(self, api_key, index, user_id):
         self.index = index
-        # openai.api_key = api_key
+        openai.api_key = api_key
         self.user_id = user_id
         self.chat_history = []
         self.filename = f"{self.user_id}_chat_history.json"
