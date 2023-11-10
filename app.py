@@ -36,7 +36,7 @@ class Chatbot:
 
     def generate_response(self, user_input):
         prompt = "\n".join([f"{message['role']}: {message['content']}" for message in self.chat_history[-5:]])
-        prompt += f"\nUser: {user_input}"
+        prompt += f"\n{self.user_id}: {user_input}"
         query_engine = index.as_query_engine()
         response = query_engine.query(user_input)
 
