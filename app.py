@@ -40,7 +40,7 @@ class Chatbot:
         query_engine = index.as_query_engine()
         response = query_engine.query(user_input)
 
-        message = {"role": "assistant", "content": response.response}
+        message = {"role": "WeAlthI", "content": response.response}
         self.chat_history.append({"role": "user", "content": user_input})
         self.chat_history.append(message)
         return message
@@ -87,7 +87,7 @@ def main():
                 bot_response = bot.generate_response(user_input)
                 bot_response_content = bot_response['content']
                 st.write(f"{user_id}: {user_input}")
-                st.write(f"Bot: {bot_response_content}")
+                st.write(f"WeAlthI: {bot_response_content}")
                 bot.save_chat_history()
                 bot.chat_history.append({"role": "user", "content": user_input})
                 bot.chat_history.append({"role": "assistant", "content": bot_response_content})
