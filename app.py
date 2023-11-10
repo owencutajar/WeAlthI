@@ -59,7 +59,7 @@ class Chatbot:
 # Streamlit app
 def main():
     st.title(':blue[WeAlthI bot] :sunglasses:')
-    st.subheader('For illustration purposes only', divider='rainbow')
+    st.subheader('For illustration purposes only')
 
     # User ID
     user_id = st.text_input("Your Name:")
